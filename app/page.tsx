@@ -218,12 +218,26 @@ export default function Dashboard() {
                         }
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <button
-                          onClick={() => deleteLink(link.code)}
-                          className="bg-red-600 text-white px-3 py-1 rounded text-sm hover:bg-red-700 transition-colors"
-                        >
-                          Delete
-                        </button>
+                        <div className="flex items-center space-x-2">
+                          <button
+                            onClick={() => copyToClipboard(link.code)}
+                            className="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700 transition-colors"
+                          >
+                            Copy
+                          </button>
+                          <a
+                            href={`/code/${link.code}`}
+                            className="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition-colors inline-block"
+                          >
+                            Stats
+                          </a>
+                          <button
+                            onClick={() => deleteLink(link.code)}
+                            className="bg-red-600 text-white px-3 py-1 rounded text-sm hover:bg-red-700 transition-colors"
+                          >
+                            Delete
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   ))}
